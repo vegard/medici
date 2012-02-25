@@ -35,7 +35,8 @@ public:
 
 	obj &y(unsigned int y)
 	{
-		value0 |= (uint16_t) y;
+		value0 &= ~255;
+		value0 |= (uint16_t) (y & 255);
 		return *this;
 	}
 
@@ -59,7 +60,8 @@ public:
 
 	obj &x(unsigned int x)
 	{
-		value1 |= (uint16_t) x;
+		value1 &= ~511;
+		value1 |= (uint16_t) (x & 511);
 		return *this;
 	}
 
@@ -71,7 +73,8 @@ public:
 
 	obj &tile(unsigned int x)
 	{
-		value2 |= (uint16_t) x;
+		value2 &= ~1023;
+		value2 |= (uint16_t) (x & 1023);
 		return *this;
 	}
 };
