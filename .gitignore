@@ -8,5 +8,7 @@
 *.o
 
 # Generated files
-png2gba
+png2background
+png2sprites
 backgrounds/*.cc
+sprites/*.cc

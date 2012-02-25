@@ -11,8 +11,10 @@ hostcxxflags="-Wall -O3 -g -std=c++0x"
 ldflags=""
 
 ${hostcxx} ${hostcxxflags} -o png2background png2background.cc -lpng
+${hostcxx} ${hostcxxflags} -o png2sprites png2sprites.cc -lpng
 
 ./png2background title backgrounds/title.png backgrounds/title.cc
+./png2sprites leonardo sprites/leonardo.png sprites/leonardo.cc
 
 
 # Compile target programs
