@@ -16,8 +16,8 @@ int main(void)
 		*((volatile uint16_t *) 0x05000000 + i) = title_palette[i];
 
 	/* Copy background */
-	for (unsigned int i = 0; i < 240 * 160 / 2; ++i)
-		*((volatile uint16_t *) 0x06000000 + i) = ((uint16_t) title[2 * i + 1] << 8) + title[2 * i];
+	for (unsigned int i = 0; i < 240 * 160 / 4; ++i)
+		*((volatile uint32_t *) 0x06000000 + i) = title[i];
 
 	/* Set BG mode */
 	dispcnt()

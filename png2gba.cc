@@ -54,15 +54,22 @@ int main(int argc, char *argv[])
 	}
 	fprintf(out, "};\n");
 
-	fprintf(out, "static uint8_t %s[] = {\n", argv[1]);
+	if (info->width % 4 != 0)
+		throw std::runtime_error("Width must be a multiple of 4");
+
+	fprintf(out, "static uint32_t %s[] = {\n", argv[1]);
 
 	png_bytep *row_pointers = png_get_rows(png, info);
 	for (unsigned int y = 0; y < info->height; ++y) {
 		png_bytep src_row = row_pointers[y];
 
 		fprintf(out, "\t");
-		for (unsigned int x = 0; x < info->width; ++x)
-			fprintf(out, "0x%02x, ", src_row[x]);
+		for (unsigned int x = 0; x < info->width; x += 4)
+			fprintf(out, "0x%08x, ",
+				(uint32_t) src_row[x]
+				| (uint32_t) src_row[x + 1] << 8
+				| (uint32_t) src_row[x + 2] << 16
+				| (uint32_t) src_row[x + 3] << 24);
 
 		fprintf(out, "\n");
 
