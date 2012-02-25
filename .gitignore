@@ -1,0 +1,12 @@
+# Temporary files
+.*.swp
+
+# Output files
+*.gba
+*.bin
+*.elf
+*.o
+
+# Generated files
+png2gba
+backgrounds/*.cc
