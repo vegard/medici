@@ -85,6 +85,7 @@ int main(int argc, char *argv[])
 			}
 
 #if 0 /* Display in console */
+			fprintf(stderr, "sprite at %u, %u:\n", x, y);
 			for (unsigned int y2 = 0; y2 < 32; ++y2) {
 				for (unsigned int x2 = 0; x2 < 32; ++x2) {
 					uint8_t *p = &row_pointers[y + y2][x + x2];
