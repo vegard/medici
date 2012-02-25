@@ -10,9 +10,9 @@ hostcxx=g++
 hostcxxflags="-Wall -O3 -g -std=c++0x"
 ldflags=""
 
-${hostcxx} ${hostcxxflags} -o png2gba png2gba.cc -lpng
+${hostcxx} ${hostcxxflags} -o png2background png2background.cc -lpng
 
-./png2gba title backgrounds/title.png backgrounds/title.cc
+./png2background title backgrounds/title.png backgrounds/title.cc
 
 
 # Compile target programs
